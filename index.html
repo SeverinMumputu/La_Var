@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Var | Authentification des Invités</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuration de Tailwind pour les couleurs personnalisées et le mode sombre -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            200: '#bcccdc',
+                            300: '#9fb3c8',
+                            400: '#829ab1',
+                            500: '#627d98',
+                            600: '#486581',
+                            700: '#334e68',
+                            800: '#243b53',
+                            900: '#0F203C', // Bleu Marine Premium
+                            950: '#0a1526',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-navy-950 dark:text-gray-100 transition-theme min-h-screen flex flex-col">
+
+    <!-- Navigation / Header -->
+    <nav class="bg-white/90 dark:bg-navy-900/90 backdrop-blur-md border-b border-gray-200 dark:border-navy-800 sticky top-0 z-50 transition-theme">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo & Title -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-navy-900 dark:bg-white flex items-center justify-center text-white dark:text-navy-900 font-bold text-xl shadow-md">
+                        VAR
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="font-bold text-xl tracking-tight text-navy-900 dark:text-white">La Var</h1>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wider uppercase">Gestion d'accès</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Actions -->
+                <div class="hidden md:flex items-center gap-6">
+                    <!-- Search Bar in Header (Desktop) -->
+                    <div class="relative w-64 lg:w-96">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <input type="text" id="searchInputDesktop" class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-navy-700 rounded-full leading-5 bg-gray-50 dark:bg-navy-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-navy-900 dark:focus:ring-white focus:border-navy-900 transition-theme sm:text-sm" placeholder="Nom, N° table, Nom table...">
+                    </div>
+
+                    <!-- Theme Toggle -->
+                    <button id="themeToggleBtn" class="p-2 rounded-full text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-navy-800 transition-theme focus:outline-none ring-2 ring-transparent focus:ring-navy-900 dark:focus:ring-white">
+                        <!-- Sun Icon (Hidden in Light Mode) -->
+                        <svg id="themeIconSun" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <!-- Moon Icon (Hidden in Dark Mode) -->
+                        <svg id="themeIconMoon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex items-center md:hidden gap-4">
+                    <button id="themeToggleBtnMobile" class="p-2 text-gray-500 dark:text-gray-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section / Présentation -->
+    <header class="bg-navy-900 dark:bg-navy-950 text-white py-16 relative overflow-hidden transition-theme">
+        <!-- Abstract Decoration -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full">
+                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="currentColor"></path>
+            </svg>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <span class="inline-block py-1 px-3 rounded-full bg-white/20 text-white text-xs font-semibold tracking-wide uppercase mb-4 backdrop-blur-sm border border-white/30">
+                Réception Officielle
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Mariage de Ivan & Diane</h2>
+            <p class="text-lg md:text-xl text-navy-100 font-light max-w-2xl mx-auto">
+                Système de vérification et d'assignation des places. Retrouvez un invité pour confirmer son arrivée et l'orienter vers sa table.
+            </p>
+            
+            <!-- Global Stats -->
+            <div class="mt-8 flex justify-center gap-6 text-sm font-medium">
+                <div class="bg-white/10 rounded-xl py-3 px-6 backdrop-blur-md border border-white/10">
+                    <span class="block text-2xl font-bold" id="statTotal">0</span>
+                    <span class="text-navy-200">Invités</span>
+                </div>
+                <div class="bg-white/10 rounded-xl py-3 px-6 backdrop-blur-md border border-white/10">
+                    <span class="block text-2xl font-bold text-emerald-400" id="statPlaced">0</span>
+                    <span class="text-navy-200">Placés</span>
+                </div>
+                <div class="bg-white/10 rounded-xl py-3 px-6 backdrop-blur-md border border-white/10">
+                    <span class="block text-2xl font-bold text-gray-300" id="statMissing">0</span>
+                    <span class="text-navy-200">En attente</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex flex-col md:flex-row gap-8">
+        
+        <!-- Sidebar Filters (Desktop) -->
+        <aside class="hidden md:block w-64 flex-shrink-0">
+            <div class="sticky top-28">
+                <h3 class="text-lg font-bold text-navy-900 dark:text-white mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-navy-600 dark:text-navy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                    Plan de Salle
+                </h3>
+                <div id="desktopTableFilters" class="space-y-2">
+                    <!-- Desktop filters injected via JS -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Guest List Area -->
+        <section class="flex-grow overflow-hidden">
+            <!-- Mobile Search & Filters (Visible only on small screens) -->
+            <div class="md:hidden mb-6 space-y-4">
+                <!-- Mobile Search -->
+                <div class="relative w-full">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <input type="text" id="searchInputMobile" class="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-navy-700 rounded-xl leading-5 bg-white dark:bg-navy-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-navy-900 dark:focus:ring-white transition-theme sm:text-sm shadow-sm" placeholder="Rechercher un invité, une table...">
+                </div>
+                <!-- Mobile Filters (Horizontally scrollable) -->
+                <div>
+                    <h3 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Filtrer par table</h3>
+                    <div id="mobileTableFilters" class="flex overflow-x-auto pb-2 gap-2 hide-scrollbar scroll-smooth">
+                        <!-- Mobile filters injected via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Filter Indication -->
+            <div class="mb-6 flex items-center justify-between">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white" id="listTitle">Tous les invités</h2>
+                <span id="resultCount" class="text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-navy-800 py-1 px-3 rounded-full"></span>
+            </div>
+
+            <!-- Grid of Guests -->
+            <div id="guestsGrid" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
+                <!-- Guest Cards injected via JS -->
+            </div>
+            
+            <!-- Empty State -->
+            <div id="emptyState" class="hidden flex-col items-center justify-center py-20 text-center">
+                <svg class="w-16 h-16 text-gray-300 dark:text-navy-700 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Aucun invité trouvé</h3>
+                <p class="mt-1 text-gray-500 dark:text-gray-400">Essayez de modifier votre recherche ou vos filtres.</p>
+                <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-navy-900 dark:bg-white text-white dark:text-navy-900 rounded-lg font-medium hover:bg-navy-800 dark:hover:bg-gray-100 transition-colors">
+                    Réinitialiser
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-navy-900 border-t border-gray-200 dark:border-navy-800 transition-theme mt-auto">
+        <div class="max-w-7xl mx-auto px-4 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
+            &copy; 2026 La Var - Designed By Mercato.
+        </div>
+    </footer>
+
+    <!-- JavaScript Data & Logic -->
+    <script src="script.js"></script>
+</body>
+</html>
