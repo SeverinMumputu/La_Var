@@ -12,3 +12,15 @@
         /* Hide scrollbar for horizontal filters on mobile */
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* ==========================================
+   PLAN DE SALLE - SCROLL INDÉPENDANT
+   ========================================== */
+
+.sidebar-scroll{
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 6px;
+    scroll-behavior: smooth;
+}

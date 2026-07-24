@@ -3,18 +3,123 @@
            1. DATA DECLARATION (Déclaration depuis le script)
            ========================================= */
         const guests = [
-            { id: 1, firstName: "Jean", lastName: "Dupont", gender: "M", tableNumber: 1, tableName: "Honneur", status: "Mr", state: "placed" },
-            { id: 2, firstName: "Marie", lastName: "Curie", gender: "F", tableNumber: 1, tableName: "Honneur", status: "Mme", state: "placed" },
-            { id: 3, firstName: "Albert", lastName: "Einstein", gender: "M", tableNumber: 1, tableName: "Honneur", status: "Mr", state: "waiting" },
-            { id: 4, firstName: "Sophie", lastName: "Martin", gender: "F", tableNumber: 2, tableName: "Diamant", status: "Mlle", state: "not_arrived" },
-            { id: 5, firstName: "Luc", lastName: "Bernard", gender: "M", tableNumber: 2, tableName: "Diamant", status: "Mr", state: "not_arrived" },
-            { id: 6, firstName: "Famille", lastName: "Lefebvre", gender: "N/A", tableNumber: 2, tableName: "Diamant", status: "Famille", state: "placed" },
-            { id: 7, firstName: "Ivan", lastName: "Muller", gender: "M", tableNumber: 3, tableName: "Saphir", status: "Mr", state: "waiting" },
-            { id: 8, firstName: "Diane", lastName: "Roux", gender: "F", tableNumber: 3, tableName: "Saphir", status: "Mme", state: "waiting" },
-            { id: 9, firstName: "Paul", lastName: "Garnier", gender: "M", tableNumber: 4, tableName: "Rubis", status: "Mr", state: "not_arrived" },
-            { id: 10, firstName: "Claire", lastName: "Fontaine", gender: "F", tableNumber: 4, tableName: "Rubis", status: "Mlle", state: "placed" },
-            { id: 11, firstName: "Antoine", lastName: "Lambert", gender: "M", tableNumber: 4, tableName: "Rubis", status: "Mr", state: "not_arrived" },
-            { id: 12, firstName: "Julie & Marc", lastName: "Moreau", gender: "N/A", tableNumber: 5, tableName: "Émeraude", status: "Couple", state: "not_arrived" },
+            //Table 1 - Rose 
+            { id: 1, firstName: "Lydia", lastName: "Zihindula", gender: "M", tableNumber: 1, tableName: "Rose", status: "Couple", state: "waiting" },
+            { id: 2, firstName: "Serge", lastName: "Cishugi", gender: "F", tableNumber: 1, tableName: "Rose", status: "Couple", state: "waiting" },
+            { id: 3, firstName: "Eric", lastName: "UWE", gender: "M", tableNumber: 1, tableName: "Rose", status: "Couple", state: "waiting" },
+            { id: 4, firstName: "Président Albert", lastName: "Kisimba", gender: "F", tableNumber: 1, tableName: "Rose", status: "Couple", state: "waiting" },
+            { id: 5, firstName: "Mandana", lastName: "", gender: "M", tableNumber: 1, tableName: "Rose", status: "Mr", state: "waiting" },
+            { id: 6, firstName: "Magistrat JC", lastName: "Katako", gender: "N/A", tableNumber: 1, tableName: "Rose", status: "Couple", state: "waiting" },
+                
+            //Table 2 - Pivoine
+            { id: 7, firstName: "Papa Rodrice", lastName: "", gender: "M", tableNumber: 2, tableName: "Pivoine", status: "Mr", state: "waiting" },
+            { id: 8, firstName: "Blaise", lastName: "Mavangu", gender: "M", tableNumber: 2, tableName: "Pivoine", status: "Mr", state: "waiting" },
+            { id: 9, firstName: "Célé", lastName: "Shomba", gender: "F", tableNumber: 2, tableName: "Pivoine", status: "Mme", state: "waiting" },
+            { id: 10, firstName: "Ketshia", lastName: "", gender: "F", tableNumber: 2, tableName: "Pivoine", status: "Mme", state: "waiting" },
+            { id: 11, firstName: "Eliza", lastName: "", gender: "F", tableNumber: 2, tableName: "Pivoine", status: "Mme", state: "waiting" },
+            { id: 12, firstName: "Bintu", lastName: "", gender: "F", tableNumber: 2, tableName: "Pivoine", status: "Mme", state: "waiting" },
+            { id: 13, firstName: "Gabriel", lastName: "", gender: "M", tableNumber: 2, tableName: "Pivoine", status: "Mr", state: "waiting" },
+            { id: 14, firstName: "Tigre", lastName: "", gender: "N/A", tableNumber: 2, tableName: "Pivoine", status: "Couple", state: "waiting" },
+
+            //Table 3 - Orchidee
+            { id: 15, firstName: "AG", lastName: "Kabamba", gender: "N/A", tableNumber: 3, tableName: "Orchidee", status: "Couple", state: "waiting" },
+            { id: 16, firstName: "Pierrot", lastName: "Kayabika", gender: "N/A", tableNumber: 3, tableName: "Orchidee", status: "Couple", state: "waiting" },
+            { id: 17, firstName: "Conseiller Allain", lastName: "", gender: "N/A", tableNumber: 3, tableName: "Orchidee", status: "Couple", state: "waiting" },
+            { id: 18, firstName: "Kabwe", lastName: "Kaloko", gender: "N/A", tableNumber: 3, tableName: "Orchidee", status: "Couple", state: "waiting" },
+            { id: 19, firstName: "Didier", lastName: "Kingombe", gender: "N/A", tableNumber: 3, tableName: "Orchidee", status: "Couple", state: "waiting" },
+
+            //Table 4 - Lys
+            { id: 20, firstName: "Gabin", lastName: "Manzonzika", gender: "N/A", tableNumber: 4, tableName: "Lys", status: "Couple", state: "waiting" },
+            { id: 21, firstName: "Colonel", lastName: "Saidi", gender: "N/A", tableNumber: 4, tableName: "Lys", status: "Couple", state: "waiting" },
+            { id: 22, firstName: "Tshimanga", lastName: "", gender: "N/A", tableNumber: 4, tableName: "Lys", status: "Couple", state: "waiting" },
+            { id: 23, firstName: "Maguy", lastName: "Kaloko", gender: "F", tableNumber: 4, tableName: "Lys", status: "Mme", state: "waiting" },
+            { id: 24, firstName: "Marie", lastName: "Kaloko", gender: "F", tableNumber: 4, tableName: "Lys", status: "Mme", state: "waiting" },
+            { id: 25, firstName: "Agnès", lastName: "Kayombo", gender: "F", tableNumber: 4, tableName: "Lys", status: "Mme", state: "waiting" },
+            { id: 26, firstName: "Micheline", lastName: "Nyawu Sohoya", gender: "F", tableNumber: 4, tableName: "Lys", status: "Mme", state: "waiting" },
+
+            //Table 5 - Tulipe
+            { id: 27, firstName: "Gina", lastName: "Mwamba", gender: "F", tableNumber: 5, tableName: "Tulipe", status: "Mme", state: "waiting" },
+            { id: 28, firstName: "Bebi", lastName: "Mayombo", gender: "F", tableNumber: 5, tableName: "Tulipe", status: "Mme", state: "waiting" },
+            { id: 29, firstName: "Onyebushi", lastName: "", gender: "N/A", tableNumber: 5, tableName: "Tulipe", status: "Couple", state: "waiting" },
+            { id: 30, firstName: "Gendrette", lastName: "Bonzeka", gender: "F", tableNumber: 5, tableName: "Tulipe", status: "Mme", state: "waiting" },
+            { id: 31, firstName: "Patsheli", lastName: "Bonzeka", gender: "F", tableNumber: 5, tableName: "Tulipe", status: "Mme", state: "waiting" },
+            { id: 32, firstName: "Emmanuel", lastName: "Kapayika", gender: "N/A", tableNumber: 5, tableName: "Tulipe", status: "Couple", state: "waiting" },
+            { id: 33, firstName: "Plamedi", lastName: "Kasinga", gender: "F", tableNumber: 5, tableName: "Tulipe", status: "Mme", state: "waiting" },
+            { id: 34, firstName: "Ketshia", lastName: "Kilele", gender: "F", tableNumber: 5, tableName: "Tulipe", status: "Mme", state: "waiting" },
+
+            //Table 6 - Jasmin
+            { id: 35, firstName: "Romeo", lastName: "Yaekela", gender: "M", tableNumber: 6, tableName: "Jasmin", status: "Mr", state: "waiting" },
+            { id: 36, firstName: "Glody", lastName: "Kabongo", gender: "M", tableNumber: 6, tableName: "Jasmin", status: "Mr", state: "waiting" },
+            { id: 37, firstName: "Kabu", lastName: "Alphonse", gender: "M", tableNumber: 6, tableName: "Jasmin", status: "Mr", state: "waiting" },
+            { id: 38, firstName: "Narcisse", lastName: "Nambonu", gender: "F", tableNumber: 6, tableName: "Jasmin", status: "Mme", state: "waiting" },
+            { id: 39, firstName: "Jemima", lastName: "Kumbi", gender: "F", tableNumber: 6, tableName: "Jasmin", status: "Mme", state: "waiting" },
+            { id: 40, firstName: "Du Grone", lastName: "Badibanga", gender: "F", tableNumber: 6, tableName: "Jasmin", status: "Mme", state: "waiting" },
+            { id: 41, firstName: "Onezim", lastName: "Kashala", gender: "M", tableNumber: 6, tableName: "Jasmin", status: "Mr", state: "waiting" },
+            { id: 42, firstName: "Ngoy", lastName: "Kabeya", gender: "M", tableNumber: 6, tableName: "Jasmin", status: "Mr", state: "waiting" },
+            { id: 43, firstName: "Miadedaka", lastName: "", gender: "F", tableNumber: 6, tableName: "Jasmin", status: "Mme", state: "waiting" },
+            { id: 44, firstName: "Grâce", lastName: "Madimda", gender: "F", tableNumber: 6, tableName: "Jasmin", status: "Mme", state: "waiting" },
+
+            //Table 7 - Lavande
+            { id: 45, firstName: "Lydia", lastName: "Nakahemba caziga", gender: "N/A", tableNumber: 7, tableName: "Lavande", status: "Couple", state: "waiting" },
+            { id: 46, firstName: "Beta", lastName: "Nyamuhira", gender: "N/A", tableNumber: 7, tableName: "Lavande", status: "Couple", state: "waiting" },
+            { id: 47, firstName: "Dibala", lastName: "Byemba", gender: "N/A", tableNumber: 7, tableName: "Lavande", status: "Couple", state: "waiting" },
+            { id: 48, firstName: "Bahati", lastName: "Mugaruka", gender: "N/A", tableNumber: 7, tableName: "Lavande", status: "Couple", state: "waiting" },
+            { id: 49, firstName: "Idesbal", lastName: "Shinamula", gender: "N/A", tableNumber: 7, tableName: "Lavande", status: "Couple", state: "waiting" },
+
+            //Table 8 - Hortensia
+            { id: 50, firstName: "Safari", lastName: "Mulume", gender: "N/A", tableNumber: 8, tableName: "Hortensia", status: "Couple", state: "waiting" },
+            { id: 51, firstName: "Remy", lastName: "Bashengezi", gender: "N/A", tableNumber: 8, tableName: "Hortensia", status: "Couple", state: "waiting" },
+            { id: 52, firstName: "Elige", lastName: "Ntumwa", gender: "N/A", tableNumber: 8, tableName: "Hortensia", status: "Couple", state: "waiting" },
+            { id: 53, firstName: "Robert", lastName: "Kuzanwa", gender: "N/A", tableNumber: 8, tableName: "Hortensia", status: "Couple", state: "waiting" },
+            { id: 54, firstName: "Nyakura", lastName: "", gender: "N/A", tableNumber: 8, tableName: "Hortensia", status: "Couple", state: "waiting" },
+
+            //Table 9 - Magnolia
+            { id: 55, firstName: "Martin", lastName: "Nkuba Muliro", gender: "N/A", tableNumber: 9, tableName: "Magnolia", status: "Couple", state: "waiting" },
+            { id: 56, firstName: "Elga", lastName: "Beya", gender: "N/A", tableNumber: 9, tableName: "Magnolia", status: "Couple", state: "waiting" },
+            { id: 57, firstName: "Josué", lastName: "Beya", gender: "M", tableNumber: 9, tableName: "Magnolia", status: "Mr", state: "waiting" },
+            { id: 58, firstName: "Fiston", lastName: "Ngandu", gender: "N/A", tableNumber: 9, tableName: "Magnolia", status: "Couple", state: "waiting" },
+            { id: 59, firstName: "Polydor", lastName: "Kashala", gender: "N/A", tableNumber: 9, tableName: "Magnolia", status: "Couple", state: "waiting" },
+
+            //Table 10 - Dahlia
+            { id: 60, firstName: "Materne", lastName: "Chiribwanwa", gender: "N/A", tableNumber: 10, tableName: "Dahlia", status: "Couple", state: "waiting" },
+            { id: 61, firstName: "Rigobert", lastName: "Muhayangabo", gender: "N/A", tableNumber: 10, tableName: "Dahlia", status: "Couple", state: "waiting" },
+            { id: 62, firstName: "Auguy", lastName: "Bisonga", gender: "N/A", tableNumber: 10, tableName: "Dahlia", status: "Couple", state: "waiting" },
+            { id: 63, firstName: "Birhuga", lastName: "Dede", gender: "N/A", tableNumber: 10, tableName: "Dahlia", status: "Couple", state: "waiting" },
+            { id: 64, firstName: "Zabona Katwanyi", lastName: "Symphorie", gender: "M", tableNumber: 10, tableName: "Dahlia", status: "Mr", state: "waiting" },
+
+                        //Table 11 - Gardenia
+            { id: 65, firstName: "Bashilwango", lastName: "Obeni Benedicte", gender: "N/A", tableNumber: 11, tableName: "Gardenia", status: "Couple", state: "waiting" },
+            { id: 66, firstName: "Patrick", lastName: "Barahiga", gender: "N/A", tableNumber: 11, tableName: "Gardenia", status: "Couple", state: "waiting" },
+            { id: 67, firstName: "Steve", lastName: "Telemuka", gender: "N/A", tableNumber: 11, tableName: "Gardenia", status: "Couple", state: "waiting" },
+            { id: 68, firstName: "Nciko", lastName: "Mushamalirwa Alain", gender: "N/A", tableNumber: 11, tableName: "Gardenia", status: "Couple", state: "waiting" },
+            { id: 69, firstName: "Mushamalirwa", lastName: "Luc", gender: "N/A", tableNumber: 11, tableName: "Gardenia", status: "Couple", state: "waiting" },
+
+            //Table 12 - Camelia
+            { id: 70, firstName: "Jonathan", lastName: "Chubaka", gender: "N/A", tableNumber: 12, tableName: "Camelia", status: "Couple", state: "waiting" },
+            { id: 71, firstName: "Rodriguez", lastName: "Biraheka", gender: "N/A", tableNumber: 12, tableName: "Camelia", status: "Couple", state: "waiting" },
+            { id: 72, firstName: "Monsieur", lastName: "Chihimba", gender: "N/A", tableNumber: 12, tableName: "Camelia", status: "Couple", state: "waiting" },
+            { id: 73, firstName: "Teddy", lastName: "Mbiavanga", gender: "M", tableNumber: 12, tableName: "Camelia", status: "Mr", state: "waiting" },
+            { id: 74, firstName: "Chancellier", lastName: "Mobonda", gender: "M", tableNumber: 12, tableName: "Camelia", status: "Mr", state: "waiting" },
+            { id: 75, firstName: "Eric", lastName: "Kabemba", gender: "M", tableNumber: 12, tableName: "Camelia", status: "Mr", state: "waiting" },
+            { id: 76, firstName: "Edmond", lastName: "Mashukano", gender: "M", tableNumber: 12, tableName: "Camelia", status: "Mr", state: "waiting" },
+
+            //Table 13 - Zinnia
+            { id: 77, firstName: "Credo", lastName: "Kitobo Kabinga", gender: "N/A", tableNumber: 13, tableName: "Zinnia", status: "Couple", state: "waiting" },
+            { id: 78, firstName: "Zachari", lastName: "Mukenge", gender: "N/A", tableNumber: 13, tableName: "Zinnia", status: "Couple", state: "waiting" },
+            { id: 79, firstName: "Julien", lastName: "Mau", gender: "N/A", tableNumber: 13, tableName: "Zinnia", status: "Couple", state: "waiting" },
+
+            //Table 14 - Hibiscus
+            { id: 80, firstName: "Katembwe", lastName: "", gender: "N/A", tableNumber: 14, tableName: "Hibiscus", status: "Couple", state: "waiting" },
+            { id: 81, firstName: "Pére Arcade", lastName: "", gender: "M", tableNumber: 14, tableName: "Hibiscus", status: "Mr", state: "waiting" },
+            { id: 82, firstName: "Patrick", lastName: "Chirubala", gender: "M", tableNumber: 14, tableName: "Hibiscus", status: "Mr", state: "waiting" },
+            { id: 83, firstName: "Jean Fikiri", lastName: "Wabene", gender: "N/A", tableNumber: 14, tableName: "Hibiscus", status: "Couple", state: "waiting" },
+
+            //Table 15 - Amaryllis
+            { id: 84, firstName: "Honoré", lastName: "Muganza", gender: "N/A", tableNumber: 15, tableName: "Amaryllis", status: "Couple", state: "waiting" },
+            { id: 85, firstName: "Nathalie", lastName: "Masa", gender: "N/A", tableNumber: 15, tableName: "Amaryllis", status: "Couple", state: "waiting" },
+            { id: 86, firstName: "Joel", lastName: "Moke", gender: "N/A", tableNumber: 15, tableName: "Amaryllis", status: "Couple", state: "waiting" },
+            { id: 87, firstName: "Joseph", lastName: "Ndeshi", gender: "N/A", tableNumber: 15, tableName: "Amaryllis", status: "Couple", state: "waiting" },
+                        
         ];
 
         /* =========================================
@@ -72,7 +177,10 @@
 
                 const label = table === 'All' ? 'Toutes les tables' : `Table ${table}`;
 
-                return `<button onclick="setTableFilter('${table}')" class="${baseClasses} ${activeClasses}">
+                return `<button
+            id="filter-${table.replace(/[^a-zA-Z0-9]/g,'-')}"
+            onclick="setTableFilter('${table}')"
+            class="${baseClasses} ${activeClasses}">
                             <span>${label}</span>
                             ${countBadge}
                         </button>`;
@@ -202,12 +310,31 @@
 
         // Filter by table click
         window.setTableFilter = function(tableStr) {
-            currentFilterTable = tableStr;
-            listTitle.textContent = tableStr === 'All' ? 'Tous les invités' : `Filtre: Table ${tableStr}`;
-            
-            renderFilters();
-            renderGrid();
-        };
+    currentFilterTable = tableStr;
+
+    listTitle.textContent =
+        tableStr === 'All'
+            ? 'Tous les invités'
+            : `Filtre: Table ${tableStr}`;
+
+    renderFilters();
+    renderGrid();
+
+    document.getElementById('guestsGrid').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+        });
+        const activeButton = document.getElementById(
+    `filter-${tableStr.replace(/[^a-zA-Z0-9]/g,'-')}`
+);
+
+if (activeButton) {
+    activeButton.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+    });
+}
+    };
 
         // Reset everything
         window.resetFilters = function() {
